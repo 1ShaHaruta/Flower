@@ -8,13 +8,8 @@
 #include <QMessageBox>
 #include <QtSql/QSqlDatabase>
 #include <QtSql>
+#include "validator.h"
 
-class Validator{
-public:
-    static bool check_customer(const QString& _login, const QString& _password);
-    static bool check_rights(const QString& _login);
-    static bool check_correctness(const QString& _login, const QString& _password);
-};
 
 class Input_Dialog:public QDialog{
     Q_OBJECT

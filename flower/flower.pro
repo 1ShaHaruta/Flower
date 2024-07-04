@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     input_device.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    validator.cpp
 
 HEADERS += \
     input_device.h \
-    mainwindow.h
+    mainwindow.h \
+    validator.h
 
 FORMS += \
     mainwindow.ui

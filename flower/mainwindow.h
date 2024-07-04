@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtSql/QSqlDatabase>
 #include <QtSql>
+#include <QListView>
 #include "input_device.h"
 
 QT_BEGIN_NAMESPACE
@@ -22,11 +23,21 @@ public:
 private slots:
 void change_status();
 void set_account(const QString& str);
+void on_action_triggered();
+
+void on_action_2_triggered();
+
+void on_action_3_triggered();
+
+void on_action_4_triggered();
+
+void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Input_Dialog* password_dlg;
     QSqlDatabase *db;
     QString account;
-    bool direction;
+    bool direction=false;
 };
 #endif // MAINWINDOW_H
