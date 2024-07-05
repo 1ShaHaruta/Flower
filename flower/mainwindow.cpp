@@ -306,3 +306,20 @@ void MainWindow::on_pushButton_3_clicked()
        db->close();
 }
 
+
+void MainWindow::on_comboBox_activated(int index)
+{
+    switch(index){
+    case 0:
+
+        break;
+    case 1:
+        insert_frm=new Insert_form;
+        insert_frm->getName(account);
+        insert_frm->show();
+        break;
+
+
+    }
+}
+

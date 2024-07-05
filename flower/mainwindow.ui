@@ -224,12 +224,7 @@
        <widget class="QComboBox" name="comboBox">
         <item>
          <property name="text">
-          <string>Новые цветы</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Новая композиция</string>
+          <string>Insert</string>
          </property>
         </item>
         <item>
@@ -240,7 +235,18 @@
        </widget>
       </item>
       <item row="7" column="2">
-       <widget class="QComboBox" name="comboBox_2"/>
+       <widget class="QComboBox" name="comboBox_2">
+        <item>
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Заказ</string>
+         </property>
+        </item>
+       </widget>
       </item>
      </layout>
     </item>

@@ -9,17 +9,23 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    delete_form.cpp \
     input_device.cpp \
+    insert_form.cpp \
     main.cpp \
     mainwindow.cpp \
     validator.cpp
 
 HEADERS += \
+    delete_form.h \
     input_device.h \
+    insert_form.h \
     mainwindow.h \
     validator.h
 
 FORMS += \
+    delete_form.ui \
+    insert_form.ui \
     mainwindow.ui
 
 # Default rules for deployment.
