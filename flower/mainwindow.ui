@@ -33,14 +33,7 @@
     <bool>false</bool>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="3">
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Прибыль за указанный период</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
+    <item row="9" column="0">
      <widget class="QTextBrowser" name="textBrowser">
       <property name="maximumSize">
        <size>
@@ -58,160 +51,198 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="5">
-     <widget class="QLabel" name="status">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>100</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <family>URW Gothic [urw]</family>
-        <pointsize>13</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="text">
-       <string>customer</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="3" column="5">
-     <widget class="QDateEdit" name="dateEdit">
-      <property name="dateTime">
-       <datetime>
-        <hour>0</hour>
-        <minute>0</minute>
-        <second>0</second>
-        <year>2024</year>
-        <month>7</month>
-        <day>5</day>
-       </datetime>
-      </property>
-      <property name="minimumDateTime">
-       <datetime>
-        <hour>0</hour>
-        <minute>0</minute>
-        <second>0</second>
-        <year>2024</year>
-        <month>1</month>
-        <day>1</day>
-       </datetime>
-      </property>
-      <property name="maximumDate">
-       <date>
-        <year>2024</year>
-        <month>12</month>
-        <day>31</day>
-       </date>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLabel" name="label">
-      <property name="font">
-       <font>
-        <family>URW Gothic [urw]</family>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>С</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="3">
-     <widget class="QDateEdit" name="dateEdit_2">
-      <property name="dateTime">
-       <datetime>
-        <hour>0</hour>
-        <minute>0</minute>
-        <second>0</second>
-        <year>2024</year>
-        <month>7</month>
-        <day>5</day>
-       </datetime>
-      </property>
-      <property name="maximumDate">
-       <date>
-        <year>2024</year>
-        <month>12</month>
-        <day>31</day>
-       </date>
-      </property>
-      <property name="minimumDate">
-       <date>
-        <year>2024</year>
-        <month>1</month>
-        <day>1</day>
-       </date>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="4">
-     <widget class="QLabel" name="label_2">
-      <property name="font">
-       <font>
-        <family>URW Gothic [urw]</family>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>до</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QLabel" name="name">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>1920</width>
-        <height>1080</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>URW Gothic [urw]</family>
-        <pointsize>13</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <underline>false</underline>
-       </font>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="text">
-       <string>Profile: </string>
-      </property>
-     </widget>
+    <item row="9" column="2">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="5" column="0">
+       <widget class="QPushButton" name="pushButton">
+        <property name="font">
+         <font>
+          <family>URW Gothic [urw]</family>
+          <pointsize>12</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Прибыль за указанный период</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2024</year>
+          <month>7</month>
+          <day>5</day>
+         </datetime>
+        </property>
+        <property name="minimumDateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2024</year>
+          <month>1</month>
+          <day>1</day>
+         </datetime>
+        </property>
+        <property name="maximumDate">
+         <date>
+          <year>2024</year>
+          <month>12</month>
+          <day>31</day>
+         </date>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="font">
+         <font>
+          <family>URW Gothic [urw]</family>
+         </font>
+        </property>
+        <property name="text">
+         <string>Популярность композиций</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="status">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>100</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>URW Gothic [urw]</family>
+          <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="text">
+         <string>customer</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>URW Gothic [urw]</family>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>       до</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QDateEdit" name="dateEdit_2">
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2024</year>
+          <month>7</month>
+          <day>5</day>
+         </datetime>
+        </property>
+        <property name="maximumDate">
+         <date>
+          <year>2024</year>
+          <month>12</month>
+          <day>31</day>
+         </date>
+        </property>
+        <property name="minimumDate">
+         <date>
+          <year>2024</year>
+          <month>1</month>
+          <day>1</day>
+         </date>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="name">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1920</width>
+          <height>1080</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>URW Gothic [urw]</family>
+          <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <underline>false</underline>
+         </font>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="text">
+         <string>Profile: </string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="font">
+         <font>
+          <family>URW Gothic [urw]</family>
+         </font>
+        </property>
+        <property name="text">
+         <string>Кол-во использованых цветов</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QComboBox" name="comboBox">
+        <item>
+         <property name="text">
+          <string>Новые цветы</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Новая композиция</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Новый заказ</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="QComboBox" name="comboBox_2"/>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

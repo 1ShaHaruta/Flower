@@ -223,3 +223,86 @@ void MainWindow::on_pushButton_clicked()
     }
 }
 
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    db=new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
+    db->setDatabaseName("/home/ilya/Рабочий стол/Flower/DB/My_db.db");
+    db->open();
+    if(!db->isOpen()){
+        QMessageBox msg(QMessageBox::Information, "Message",
+                        "<b>База данных не открыта</b>"
+                        ,QMessageBox::Ok);
+        msg.exec();
+    }
+
+    QSqlQuery query(*db);
+    QString command1="SELECT Composition, COUNT(*) FROM Orders GROUP BY Composition";
+    query.exec(command1);
+     QSqlRecord rec= query.record();
+     QString buf;
+     ui->textBrowser->clear();
+     ui->textBrowser->append("Популярность композиций: ");
+    while (query.next()){
+    buf=query.value(rec.indexOf("Composition")).toString()+"  Кол-во проданных штук: "+query.value(rec.indexOf("COUNT(*)")).toString();
+    ui->textBrowser->append(buf);
+   }
+
+       db->close();
+    }
+
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QDate d1=ui->dateEdit_2->date(), d2=ui->dateEdit->date();
+    QString formate_date1, formate_date2;
+
+    if(d1.month()<10){
+            formate_date1="2024-0"+QString::number(d1.month());
+    }else formate_date1="2024-"+QString::number(d1.month());
+    if(d1.day()<10){
+        formate_date1+=QString("-0"+QString::number(d1.day()));
+    }else formate_date1+=QString("-"+QString::number(d1.day()));
+    //////////////////////////////////////////
+    if(d2.month()<10){
+            formate_date2="2024-0"+QString::number(d2.month());
+    }else formate_date2="2024-"+QString::number(d2.month());
+    if(d2.day()<10){
+        formate_date2+=QString("-0"+QString::number(d2.day()));
+    }else formate_date2+=QString("-"+QString::number(d2.day()));
+
+    int day_count=d1.daysTo(d2);
+    if(day_count>=0){
+    db=new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
+    db->setDatabaseName("/home/ilya/Рабочий стол/Flower/DB/My_db.db");
+    db->open();
+    if(!db->isOpen()){
+        QMessageBox msg(QMessageBox::Information, "Message",
+                        "<b>База данных не открыта</b>"
+                        ,QMessageBox::Ok);
+        msg.exec();
+    }
+
+    QSqlQuery query(*db), query2(*db);
+    QString command1="SELECT Composition, COUNT(*) FROM Orders WHERE Date_of_completion BETWEEN '"+formate_date1+"' AND '"+formate_date2+"' GROUP BY Composition;",
+            command2;
+    query.exec(command1);
+     QSqlRecord rec= query.record(), rec2;
+     QString buf;
+     ui->textBrowser->clear();
+     ui->textBrowser->append("Кол-во использованных цветов за указанный период: ");
+    while (query.next()){
+        command2="SELECT Flower_name FROM Composition WHERE Name glob '"+query.value(rec.indexOf("Composition")).toString()+"';";
+        query2.exec(command2);
+        rec2= query2.record();
+        query2.next();
+        buf=query2.value(rec2.indexOf("Flower_name")).toString()+"  Кол-во проданных штук: "+query.value(rec.indexOf("COUNT(*)")).toString();
+        ui->textBrowser->append(buf);
+    }
+
+   }
+
+       db->close();
+}
+
