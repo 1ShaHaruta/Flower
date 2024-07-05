@@ -311,7 +311,8 @@ void MainWindow::on_comboBox_activated(int index)
 {
     switch(index){
     case 0:
-
+ui->comboBox->hide();
+ui->comboBox->show();
         break;
     case 1:
         insert_frm=new Insert_form;
@@ -321,5 +322,77 @@ void MainWindow::on_comboBox_activated(int index)
 
 
     }
+}
+
+
+void MainWindow::on_comboBox_2_activated(int index)
+{
+    switch(index){
+    case 0:
+ui->comboBox_2->hide();
+ui->comboBox_2->show();
+        break;
+    case 1:
+        delete_frm=new Delete_form;
+        delete_frm->getName(account);
+        delete_frm->show();
+        break;
+
+
+    }
+}
+
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    QDate d1=ui->dateEdit_2->date(), d2=ui->dateEdit->date();
+    QString formate_date1, formate_date2;
+
+    if(d1.month()<10){
+            formate_date1="2024-0"+QString::number(d1.month());
+    }else formate_date1="2024-"+QString::number(d1.month());
+    if(d1.day()<10){
+        formate_date1+=QString("-0"+QString::number(d1.day()));
+    }else formate_date1+=QString("-"+QString::number(d1.day()));
+    //////////////////////////////////////////
+    if(d2.month()<10){
+            formate_date2="2024-0"+QString::number(d2.month());
+    }else formate_date2="2024-"+QString::number(d2.month());
+    if(d2.day()<10){
+        formate_date2+=QString("-0"+QString::number(d2.day()));
+    }else formate_date2+=QString("-"+QString::number(d2.day()));
+
+    int day_count=d1.daysTo(d2);
+    if(day_count>=0){
+    db=new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
+    db->setDatabaseName("/home/ilya/Рабочий стол/Flower/DB/My_db.db");
+    db->open();
+    if(!db->isOpen()){
+        QMessageBox msg(QMessageBox::Information, "Message",
+                        "<b>База данных не открыта</b>"
+                        ,QMessageBox::Ok);
+        msg.exec();
+    }
+
+    QSqlQuery query(*db);
+    QString command1="SELECT * FROM Orders WHERE Order_Date glob '"+formate_date1+"';";
+
+    query.exec(command1);
+     QSqlRecord rec= query.record();
+     QString buf;
+     ui->textBrowser->clear();
+     ui->textBrowser->append("Все заказы поступившие указанного числа: ");
+    while (query.next()){
+        buf="Заказчик: "+query.value(rec.indexOf("Name")).toString()+" Композиция: "+query.value(rec.indexOf("Composition")).toString()
+                +" Количество: "+query.value(rec.indexOf("Count")).toString()+"  Стоимость: "+
+                query.value(rec.indexOf("Cost")).toString()+"  Дата заказа: "+
+                query.value(rec.indexOf("Order_date")).toString()+" Дата выполнения: "+
+                query.value(rec.indexOf("Date_of_completion")).toString();
+        ui->textBrowser->append(buf);
+    }
+
+   }
+
+       db->close();
 }
 

@@ -62,11 +62,10 @@ QString command1, command2, command3;
       query.next();
       cost*=query.value(rec.indexOf("Cost")).toDouble();
      cost*=ui->Count->text().toInt();
-     double ten_procent=cost*0.1;//Запрещаем увеличивать стоимость если ценаа увеличивается больше чем на 10%
-     if(day_count==1&&ten_procent>cost*1.25)
+     if(day_count==1)
          cost=cost*1.25;
-     else if(day_count>=2&&ten_procent>cost*1.1)
-         cost=cost*1.1;
+     else if(day_count>=2)
+         cost=cost*1.15;
 
      command1="INSERT INTO Orders VALUES('"+account+"', '"+ui->Composition->text()+"', "+ui->Count->text()+", "
              +QString::number(cost)+", '"+formate_date1+"', '"+formate_date2+"');";

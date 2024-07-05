@@ -7,6 +7,7 @@
 #include <QListView>
 #include "input_device.h"
 #include "insert_form.h"
+#include "delete_form.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -40,10 +41,15 @@ void on_pushButton_3_clicked();
 
 void on_comboBox_activated(int index);
 
+void on_comboBox_2_activated(int index);
+
+void on_pushButton_4_clicked();
+
 private:
     Ui::MainWindow *ui;
     Input_Dialog* password_dlg;
     Insert_form* insert_frm;
+    Delete_form* delete_frm;
     QSqlDatabase *db;
     QString account;
     bool direction=false;

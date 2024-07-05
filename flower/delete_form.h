@@ -3,6 +3,11 @@
 
 #include <QDialog>
 
+#include <QString>
+#include <QtSql/QSqlDatabase>
+#include <QtSql>
+#include <QMessageBox>
+
 namespace Ui {
 class Delete_form;
 }
@@ -14,9 +19,13 @@ class Delete_form : public QDialog
 public:
     explicit Delete_form(QWidget *parent = nullptr);
     ~Delete_form();
+    void getName(const QString& str);
 
+private slots:
+    void delete_com();
 private:
     Ui::Delete_form *ui;
+    QString account;
 };
 
 #endif // DELETE_FORM_H
