@@ -1,6 +1,7 @@
 #include "input_device.h"
 
 void Input_Dialog::check(){
+    if(!this->line1->text().isEmpty()||!this->line2->text().isEmpty())
 if(Validator::check_customer(this->line1->text(), this->line2->text())){
     if(Validator::check_rights(this->line1->text()))
         emit is_direction();
@@ -16,6 +17,7 @@ else{
 }
 
 void Input_Dialog::newone(){
+    if(!this->line1->text().isEmpty()||!this->line2->text().isEmpty())
 if(Validator::check_correctness(this->line1->text(),this->line2->text())){
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("../DB/My_db.db");

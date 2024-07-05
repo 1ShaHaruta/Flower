@@ -40,7 +40,7 @@ QString command1, command2, command3;
     int day_count=d1.daysTo(d2);
     if(day_count>=0){
     QSqlDatabase db=QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
-    db.setDatabaseName("/home/ilya/Рабочий стол/Flower/DB/My_db.db");
+    db.setDatabaseName("../DB/My_db.db");
     db.open();
     if(!db.isOpen()){
         QMessageBox msg(QMessageBox::Information, "Message",
@@ -66,7 +66,6 @@ QString command1, command2, command3;
          cost=cost*1.25;
      else if(day_count>=2)
          cost=cost*1.15;
-
      command1="INSERT INTO Orders VALUES('"+account+"', '"+ui->Composition->text()+"', "+ui->Count->text()+", "
              +QString::number(cost)+", '"+formate_date1+"', '"+formate_date2+"');";
     query.exec(command1);
